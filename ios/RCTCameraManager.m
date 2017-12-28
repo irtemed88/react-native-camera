@@ -462,6 +462,7 @@ RCT_EXPORT_METHOD(hasFlash:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRej
     AVCaptureStillImageOutput *stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
     if ([self.session canAddOutput:stillImageOutput])
     {
+      stillImageOutput.highResolutionStillImageOutputEnabled = YES;
       stillImageOutput.outputSettings = @{AVVideoCodecKey : AVVideoCodecJPEG};
       [self.session addOutput:stillImageOutput];
       self.stillImageOutput = stillImageOutput;
